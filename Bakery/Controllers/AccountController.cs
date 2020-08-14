@@ -26,6 +26,11 @@ namespace Bakery.Controllers
       return View();
     }
 
+    public ActionResult Register()
+    {
+      return View();
+    }
+
     [HttpPost] //creating user accounts will be asynchronous 
     // Task = built in class, represents async actions that haven't been completed yet
     public async Task<ActionResult> Register (RegisterViewModel model)
