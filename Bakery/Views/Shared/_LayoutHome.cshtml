@@ -8,7 +8,7 @@
     @* <link rel="stylesheet" href="~/css/flatly.css"> *@
     <link rel="stylesheet" href="~/css/styles.css">
 </head>
-<body>
+<body class="home">
   @* navbar created using bootstrap documentation - need JS plugin to expand collapsed navbar *@
   <nav class="navbar navbar-default">
   <div class="container-fluid">
@@ -32,7 +32,13 @@
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
-
+  <div class="container">
     @RenderBody()    
+  </div>
+  <footer>
+    <div class="author-cred">
+      <p>Homepage photo by Valentina Locatelli on <a href="https://unsplash.com/" target="_blank">Unsplash</a></p>
+    </div>
+  </footer>
 </body>
 </html>
