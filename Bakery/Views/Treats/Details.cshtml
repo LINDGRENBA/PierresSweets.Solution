@@ -1,0 +1,28 @@
+@{
+  Layout = "_Layout";
+}
+
+@using Bakery.Models;
+@model Bakery.Models.Treat;
+
+<h2>Delicious Details!</h2>
+<hr/>
+
+<h4>Treat Type: @Model.Type</h4>
+<h4>Delicious Description: @Model.Description</h4>
+
+@if(Model.Flavors.Count == 0)
+{
+  <h4>This treat is bland! Tell us what kind of flavor it should have:</h4>
+  @* BUTTON TO ADD A FLAVOR GOES HERE*@
+}
+else
+{
+  <ul class="flavors-box">
+    @foreach(var join in Model.Flavors)
+    {
+      <li>@join.Flavor.Type</li>
+      @* DELETE FLAVOR BUTTON GOES HERE *@
+    }
+  </ul>
+}
