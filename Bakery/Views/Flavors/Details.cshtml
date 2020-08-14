@@ -1,0 +1,32 @@
+@{
+  Layout = "_Layout";
+}
+
+@using Bakery.Models;
+@model Bakery.Models.Treat;
+
+<h2>Delicious Details!</h2>
+<hr/>
+
+<h4><span class="fancy">Taste Type: @Model.Type</span></h4>
+
+<div class="form">
+  @if(Model.Treats.Count == 0)
+  {
+    <h4>This flavor doesn't belong to a treat yet! Tell us what kind of treats have this flavor:</h4>
+    <button class="btn btn-default">@Html.ActionLink("Add a Treat", "AddTreat", new { id = Model.FlavorId})</button>
+    <button class="btn btn-default">@Html.ActionLink("Edit", "Edit", new { id = Model.FlavorId})</button>
+  }
+  else
+  {
+    <ul class="flavors-box">
+      @foreach(var join in Model.Treats)
+      {
+        <li>@join.Treat.Type</li>
+        @* DELETE FLAVOR BUTTON GOES HERE *@
+      }
+    </ul>
+    <button class="btn btn-default">@Html.ActionLink("Add more Treats", "AddTreat", new { id = Model.FlavorId})</button>
+    
+  }
+</div>

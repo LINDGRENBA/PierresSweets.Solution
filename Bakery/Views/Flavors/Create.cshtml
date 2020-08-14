@@ -1,0 +1,20 @@
+@{
+  Layout = "_Layout";
+}
+
+@using Bakery.Models;
+@model Bakery.Models.Treat;
+
+<h1>Add a tasty flavor type to the Bakery: </h1>
+<p class="fancy">Suggestions: sweet, savory, spicy, creamy, salty</p>
+
+<div class="form">
+  @using (Html.BeginForm())
+  {
+    @Html.LabelFor(model => model.Type)
+    @Html.TextBoxFor(model => model.Type, new { @class="form-control"})
+    <hr/> 
+    
+    <button type="submit" class="btn btn-default">Add Treat</button>
+  }
+</div>
