@@ -12,10 +12,11 @@ using System.Linq;
 
 namespace Bakery.Controllers
 {
+  [Authorize]
   public class TreatsController : Controller
   {
     private readonly BakeryContext _db;
-    private readonly UserManager<ApplicationUser> userManager;
+    private readonly UserManager<ApplicationUser> _userManager;
 
     public TreatsController(UserManager<ApplicationUser> userManager, BakeryContext db)
     {
