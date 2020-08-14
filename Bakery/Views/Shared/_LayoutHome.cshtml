@@ -27,9 +27,10 @@
         <li><a>@Html.ActionLink("View Treats", "Index", "Treats")</a></li>
         <li><a>@Html.ActionLink("View Flavors", "Index", "Flavors")</a></li>
         @if(User.Identity.IsAuthenticated)
-        {
-          <li><a>@Html.ActionLink("Your Treats", "Details", "Treats")</a></li>
-        }
+          {
+            <li><a>@Html.ActionLink("Add Treats", "Create", "Treats")</a></li>
+            <li><a>@Html.ActionLink("Add Flavors", "Create", "Flavors")</a></li>
+          }
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
