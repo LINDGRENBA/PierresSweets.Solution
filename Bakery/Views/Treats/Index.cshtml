@@ -11,7 +11,7 @@
   @if(User.Identity.IsAuthenticated)
   {
     <h4>There aren't any treats in the bakery yet! Do you want to add a treat?</h4>
-    <button>@Html.ActionLink("Add Treats", "Create", "Treats")</button>
+    <button class="btn btn-default">@Html.ActionLink("Add Treats", "Create", "Treats")</button>
   }
   else
   {
@@ -21,15 +21,17 @@
 }
 else
 {
-  <h2>Behold!</h2>
-  <ul class="treats-list">
-    @foreach(Treat treat in Model)
+  <div class="treats-box">
+    <h2>Behold, the wonder!</h2>
+    <ul class="treats-list">
+      @foreach(Treat treat in Model)
+      {
+        <li>@Html.ActionLink($"{treat.Type}", "Details", new { id = treat.TreatId})</li>
+      }
+    </ul>
+      @if(User.Identity.IsAuthenticated)
     {
-      <li>@Html.ActionLink($"{treat.Type}", "Details", new { id = treat.TreatId})</li>
+      <button class="btn btn-default">@Html.ActionLink("Add More Treats", "Create", "Treats")</button>
     }
-  </ul>
-    @if(User.Identity.IsAuthenticated)
-  {
-    <button>@Html.ActionLink("Add More Treats", "Create", "Treats")</button>
-  }
+  </div>
 }

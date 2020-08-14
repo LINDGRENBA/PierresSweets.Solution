@@ -1,0 +1,21 @@
+@{
+  Layout = "_Layout";
+}
+
+@using Bakery.Models;
+@model Bakery.Models.Treat;
+
+<h1>Add a treat to the Bakery: </h1>
+
+<div class="form">
+  @using (Html.BeginForm())
+  {
+    @Html.LabelFor(model => model.Type)
+    @Html.TextBoxFor(model => model.Type, new { @class="form-control"})
+
+    @Html.LabelFor(model => model.Description)
+    @Html.TextBoxFor(model => model.Description, new { @class="form-control"})
+    <hr/> 
+    <button type="submit" class="btn btn-default">Add Treat</button>
+  }
+</div>
