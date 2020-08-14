@@ -1,0 +1,27 @@
+@{
+  Layout = "_Layout";
+}
+
+@using Bakery.Models;
+@model Bakery.Models.Treat;
+
+<h1>Edit @Model.Type</h1>
+
+<div class="form">
+  @using (Html.BeginForm())
+  {
+    @Html.LabelFor(model => model.Type)
+    @Html.EditorFor(model => model.Type, new { @class="form-control"})
+    <br/>
+    @Html.LabelFor(model => model.Description)
+    @Html.EditorFor(model => model.Description, new { @class="form-control"})
+    <hr/>
+    @if(@ViewBag.AnyFlavor.Count != 0)
+    {
+      @Html.Label("Edit Flavors")
+      @Html.DropDownList("FlavorId", null, new { @class="form-control" })
+    }
+    <button type="submit" class="btn btn-default">Save Changes</button>
+    @* FIX STYLING *@
+  }
+</div>

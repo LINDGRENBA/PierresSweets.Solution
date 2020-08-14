@@ -16,6 +16,7 @@
   {
     <h4>This treat is bland! Tell us what kind of flavor it should have:</h4>
     <button class="btn btn-default">@Html.ActionLink("Add a Flavor", "AddFlavor", new { id = Model.TreatId})</button>
+    <button class="btn btn-default">@Html.ActionLink("Edit", "Edit", new { id = Model.TreatId})</button>
   }
   else
   {
@@ -27,5 +28,6 @@
       }
     </ul>
     <button class="btn btn-default">@Html.ActionLink("Add more Flavors", "AddFlavor", new { id = Model.TreatId})</button>
+    
   }
 </div>

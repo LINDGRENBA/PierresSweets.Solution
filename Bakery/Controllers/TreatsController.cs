@@ -55,6 +55,7 @@ namespace Bakery.Controllers
     public ActionResult Edit(int id)
     {
       var thisTreat = _db.Treats.FirstOrDefault(treats => treats.TreatId == id);
+      ViewBag.AnyFlavor = _db.Flavors.OrderBy(flavors => flavors.Type).ToList();
       ViewBag.FlavorId = new SelectList(_db.Flavors, "FlavorId", "Type");
       return View(thisTreat);
     }
