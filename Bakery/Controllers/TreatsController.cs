@@ -69,7 +69,7 @@ namespace Bakery.Controllers
       }
       _db.Entry(treat).State = EntityState.Modified;
       _db.SaveChanges();
-      return RedirectToAction("Details");
+      return RedirectToAction("Index");
     }
 
     public ActionResult AddFlavor(int id)
