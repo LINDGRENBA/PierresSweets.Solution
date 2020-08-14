@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Identity; //new
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
-using PROJECTNAME.Models;
+using Bakery.Models;
 
 namespace Bakery
 {

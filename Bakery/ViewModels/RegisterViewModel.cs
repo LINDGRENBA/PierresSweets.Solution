@@ -5,12 +5,12 @@ namespace Bakery.ViewModels
   public class RegisterViewModel
   {
     [Required]
-    [FirstName]
+    [DataType(DataType.Text)]
     [Display(Name = "First Name")]
     public string FirstName { get; set; }
 
     [Required]
-    [LastName]
+    [DataType(DataType.Text)]
     [Display(Name = "Last Name")]
     public string LastName { get; set; }
 
