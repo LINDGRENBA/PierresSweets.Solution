@@ -51,5 +51,14 @@ namespace Bakery.Controllers
           .FirstOrDefault(treats => treats.TreatId == id);
           return View(thisTreat);
     }
+
+    // NEED EDIT ROUTES
+
+    public ActionResult AddFlavor(int id)
+    {
+      var thisTreat = _db.Treats.FirstOrDefault(treats => treats.TreatId == id);
+      ViewBag.FlavorId = new SelectList(_db.Flavors, "FlavorId", "Type");
+      return View(thisTreat);
+    }
   }
 }

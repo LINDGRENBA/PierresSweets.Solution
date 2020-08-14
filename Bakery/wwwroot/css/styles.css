@@ -73,3 +73,7 @@ footer {
   margin-top: 20px;
   color: #000;
 }
+
+.fancy {
+  font-style: italic;
+}
