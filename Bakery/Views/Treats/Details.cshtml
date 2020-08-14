@@ -8,21 +8,24 @@
 <h2>Delicious Details!</h2>
 <hr/>
 
-<h4>Treat Type: @Model.Type</h4>
-<h4>Delicious Description: @Model.Description</h4>
+<h4><span class="fancy">Treat Type: @Model.Type</span></h4>
+<h4><span class="fancy">Delicious Description: @Model.Description</span></h4>
 
-@if(Model.Flavors.Count == 0)
-{
-  <h4>This treat is bland! Tell us what kind of flavor it should have:</h4>
-  @* BUTTON TO ADD A FLAVOR GOES HERE*@
-}
-else
-{
-  <ul class="flavors-box">
-    @foreach(var join in Model.Flavors)
-    {
-      <li>@join.Flavor.Type</li>
-      @* DELETE FLAVOR BUTTON GOES HERE *@
-    }
-  </ul>
-}
+<div class="form">
+  @if(Model.Flavors.Count == 0)
+  {
+    <h4>This treat is bland! Tell us what kind of flavor it should have:</h4>
+    <button class="btn btn-default">@Html.ActionLink("Add a Flavor", "AddFlavor", new { id = Model.TreatId})</button>
+  }
+  else
+  {
+    <ul class="flavors-box">
+      @foreach(var join in Model.Flavors)
+      {
+        <li>@join.Flavor.Type</li>
+        @* DELETE FLAVOR BUTTON GOES HERE *@
+      }
+    </ul>
+    <button class="btn btn-default">@Html.ActionLink("Add more Flavors", "AddFlavor", new { id = Model.TreatId})</button>
+  }
+</div>
