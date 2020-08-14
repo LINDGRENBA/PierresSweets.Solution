@@ -104,7 +104,7 @@ Anytime you make a change to a Model that affects the database, run the dotnet c
 
 | Bug : Message |  Situation  | Resolved (Y/N) |  How was the issue resolved?  |
 | ------- | ----- | ------ | ------- |
-|  |  |  |  |
+| Register page, fill in information, hit register, password disappears, but page does not redirect | x | N | x |
 
 
 ## Support and contact details
