@@ -12,7 +12,7 @@ using System.Linq;
 
 namespace Bakery.Controllers
 {
-  // [Authorize]
+  [Authorize]
   public class TreatsController : Controller
   {
     private readonly BakeryContext _db;
@@ -23,7 +23,23 @@ namespace Bakery.Controllers
       _userManager = userManager;
       _db = db;
     }
+
+    public ActionResult Index()
+    {
+      return View(_db.Treats.OrderBy(treats => treats.Type).ToList());
+    }
     
+    public ActionResult Create()
+    {
+      return View();
+    }
     
+    [HttpPost]
+    public ActionResult Create(Treat treat)
+    {
+      _db.Treats.Add(treat);
+      _db.SaveChanges();
+      return RedirectToAction("Index");
+    }
   }
 }
