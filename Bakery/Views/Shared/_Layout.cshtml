@@ -26,8 +26,18 @@
         <li><a>@Html.ActionLink("Create an account or LogIn", "Index", "Account")</a></li>
         <li><a>@Html.ActionLink("View Treats", "Index", "Treats")</a></li>
         <li><a>@Html.ActionLink("View Flavors", "Index", "Flavors")</a></li>
-        <li><a>@Html.ActionLink("Your Treats", "Details", "Treats")</a></li>
+        @if(User.Identity.IsAuthenticated)
+        {
+          <li><a>@Html.ActionLink("Your Treats", "Details", "Treats")</a></li>
+        }
       </ul>
+      @if(User.Identity.IsAuthenticated)
+      {
+        @using (Html.BeginForm("LogOff", "Account"))
+        {
+          <button type="submit" class="btn btn-default log-off">Log Out</button>
+        }
+      }
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>

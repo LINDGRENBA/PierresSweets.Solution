@@ -104,7 +104,7 @@ Anytime you make a change to a Model that affects the database, run the dotnet c
 
 | Bug : Message |  Situation  | Resolved (Y/N) |  How was the issue resolved?  |
 | ------- | ----- | ------ | ------- |
-| Register page, fill in information, hit register, password disappears, but page does not redirect | x | N | x |
+| Register page, fill in information, hit register, password disappears, but page does not redirect | Attempting to Register or Log In | Yes and No | Issue only occurs if A) attempting to register with information that has been used for a different account or B) if entering the wrong information when attempting to Log In - need error message that indicates to user why register or login has failed |
 
 
 ## Support and contact details

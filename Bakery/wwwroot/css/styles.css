@@ -37,6 +37,12 @@ footer {
   margin-bottom: 30px;
 }
 
+.log-off {
+  position: absolute;
+  right: 20px;
+  top: 30px;
+}
+
 /* TEXT */
 
 .author-cred {
