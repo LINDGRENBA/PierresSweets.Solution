@@ -92,17 +92,18 @@ namespace Bakery.Controllers
         _db.FlavorTreat.Add(new FlavorTreat() { TreatId = treat.TreatId, FlavorId = FlavorId});
       }
       _db.SaveChanges();
-      // var thisTreat = _db.Treats.FirstOrDefault(model => model.TreatId == treat.TreatId);
-      // return RedirectToAction ("Details", thisTreat);
-      // var thisTreat = _db.Treats
-      //     .Include(treats => treats.Flavors)
-      //     .ThenInclude(join => join.Flavor)
-      //     .Include(treats => treats.ApplicationUser)
-      //     .FirstOrDefault(treats => treats.TreatId == id);
-      // return RedirectToAction("Details", thisTreat);  SAVES TO DB BUT THEN VIEW DOES NOT
-      // ACCESS INFORMATION PROPERLY - WOULD LIKE TO ACHIEVE THIS SO IT REDIRECTS DIRECTLY TO
-      // TREATS DETAILS PAGE
       return RedirectToAction("Index");
     }
+
+
+    [HttpPost]
+    public ActionResult DeleteFlavor(int joinId)
+    {
+      var joinEntry = _db.FlavorTreat.FirstOrDefault(entry => entry.FlavorTreatId == joinId);
+      _db.FlavorTreat.Remove(joinEntry);
+      _db.SaveChanges();
+      return RedirectToAction("Index");
+    }
+
   }
 }

@@ -2,7 +2,6 @@
   Layout = "_Layout";
 }
 
-@using Bakery.Models;
 @model Bakery.Models.Treat;
 
 <h2>Delicious Details!</h2>
@@ -24,10 +23,14 @@
       @foreach(var join in Model.Flavors)
       {
         <li>@join.Flavor.Type</li>
-        @* DELETE FLAVOR BUTTON GOES HERE *@
+        @using (Html.BeginForm("DeleteFlavor", "Treats"))
+        {
+          @Html.Hidden("joinId", @join.FlavorTreatId, @join.FlavorId)
+          <button type="submit" class="btn btn-warning join-delete">Delete</button>
+        }
       }
     </ul>
     <button class="btn btn-default">@Html.ActionLink("Add more Flavors", "AddFlavor", new { id = Model.TreatId })</button>
-    
+    <button class="btn btn-default">@Html.ActionLink("Back to List", "Index")</button>
   }
 </div>
