@@ -7,22 +7,25 @@
 
 <h2>Register a new user</h2>
 <hr/>
-@using (Html.BeginForm("Register", "Account", FormMethod.Post))
-{
-    @Html.LabelFor(user => user.FirstName)
-    @Html.TextBoxFor(user=> user.FirstName)
-    <br/>
-    @Html.LabelFor(user => user.LastName)
-    @Html.TextBoxFor(user=> user.LastName)
-    <br/>
-    @Html.LabelFor(user => user.Email)
-    @Html.TextBoxFor(user=> user.Email)
-    <br/>
-    @Html.LabelFor(user=> user.Password)
-    @Html.PasswordFor(user=> user.Password)
-    <br/>
-    @Html.LabelFor(user=> user.ConfirmPassword)
-    @Html.PasswordFor(user=> user.ConfirmPassword)
-    <br/>
-    <button type="submit">Register</button>
-}
+
+<div class="form">
+  @using (Html.BeginForm("Register", "Account", FormMethod.Post))
+  {
+      @Html.LabelFor(user => user.FirstName)
+      @Html.TextBoxFor(user=> user.FirstName, new { @class="form-control" })
+      <br/>
+      @Html.LabelFor(user => user.LastName)
+      @Html.TextBoxFor(user=> user.LastName, new { @class="form-control" })
+      <br/>
+      @Html.LabelFor(user => user.Email)
+      @Html.TextBoxFor(user=> user.Email, new { @class="form-control" })
+      <br/>
+      @Html.LabelFor(user=> user.Password)
+      @Html.PasswordFor(user=> user.Password, new { @class="form-control" })
+      <br/>
+      @Html.LabelFor(user=> user.ConfirmPassword)
+      @Html.PasswordFor(user=> user.ConfirmPassword, new { @class="form-control" })
+      <br/>
+      <button type="submit">Register</button>
+  }
+</div>

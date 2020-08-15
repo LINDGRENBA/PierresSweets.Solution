@@ -16,7 +16,16 @@
 }
 else
 {
-  
-  <button class="btn btn-default">@Html.ActionLink("Register", "Register")</button>
-  <button class="btn btn-default">@Html.ActionLink("Log in", "Login")</button>
+  <div class="account-form">
+    <div class="row">
+      <div class="col-sm-6 col-xs-12 account-index">
+        <h4>Don't have an account yet?</h4>
+        <button class="btn btn-default">@Html.ActionLink("Register", "Register")</button>
+      </div>
+      <div class="col-sm-6 col-xs-12 account-index">
+        <h4>Have an existing account?</h4>
+        <button class="btn btn-default">@Html.ActionLink("Log in", "Login")</button>
+      </div>
+    </div>
+  </div>
 }

@@ -7,14 +7,23 @@
 @model LoginViewModel
 
 <h1>Log in with your account</h1>
+<p>In order to make changes to the site, you are required to log in.</p>
 <hr />
-@using (Html.BeginForm())
-{
-    @Html.LabelFor(m => m.Email)
-    @Html.TextBoxFor(m => m.Email)
-    <br/>
-    @Html.LabelFor(m => m.Password)
-    @Html.PasswordFor(m => m.Password)
-    <br/>
-    <button type="submit" class="btn btn-default">Log In</button>
-}
+
+<div class="form">
+  @using (Html.BeginForm())
+  {
+      @Html.LabelFor(m => m.Email)
+      @Html.TextBoxFor(m => m.Email, new { @class="form-control" })
+      <br/>
+      @Html.LabelFor(m => m.Password)
+      @Html.PasswordFor(m => m.Password, new { @class="form-control" })
+      <br/>
+      <button type="submit" class="btn btn-default">Log In</button>
+  }
+</div>
+<hr/>
+<div class="form">
+  <p>Don't have an account yet?</p>
+  <button class="btn btn-default">@Html.ActionLink("Register", "Register")</button>
+</div>

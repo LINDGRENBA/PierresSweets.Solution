@@ -18,6 +18,16 @@ body {
 }
 
 /* BOXES */
+
+.account-index {
+  margin-bottom: 30px;
+}
+
+.account-form {
+  width: 80%;
+  margin: 20px auto;
+}
+
 .welcome {
   background: rgba(255, 255, 255, .4);
   box-shadow: 0 15px 20px rgba(0, 0, 0, .5);
