@@ -14,8 +14,6 @@
   @if(Model.Flavors.Count == 0)
   {
     <h4>This treat is bland! Tell us what kind of flavor it should have:</h4>
-    <button class="btn btn-default">@Html.ActionLink("Add a Flavor", "AddFlavor", new { id = Model.TreatId})</button>
-    <button class="btn btn-default">@Html.ActionLink("Edit", "Edit", new { id = Model.TreatId})</button>
   }
   else
   {
@@ -30,7 +28,9 @@
         }
       }
     </ul>
-    <button class="btn btn-default">@Html.ActionLink("Add more Flavors", "AddFlavor", new { id = Model.TreatId })</button>
-    <button class="btn btn-default">@Html.ActionLink("Back to List", "Index")</button>
   }
+    <button class="btn btn-default">@Html.ActionLink("Back to List", "Index")</button>
+    <button class="btn btn-default">@Html.ActionLink("Add Flavors", "AddFlavor", new { id = Model.TreatId })</button>
+    <button class="btn btn-default">@Html.ActionLink("Edit", "Edit", new { id = Model.TreatId})</button>
+    <button class="btn btn-default">@Html.ActionLink("Delete this Record", "Delete", new { id = Model.TreatId })</button> 
 </div>

@@ -12,6 +12,7 @@
 <div class="form">
   @using (Html.BeginForm())
   {
+    <button class="btn btn-warning">@Html.ActionLink("Cancel", "Index")</button>
     <button type="submit" class="btn btn-warning">Delete</button>
   }
 </div>

@@ -74,8 +74,6 @@ namespace Bakery.Controllers
       return RedirectToAction("Index");
     }
 
-
-
     [Authorize]
     public ActionResult AddFlavor(int id)
     {
@@ -93,6 +91,22 @@ namespace Bakery.Controllers
       }
       _db.SaveChanges();
       return RedirectToAction("Index");
+    }
+
+    [Authorize]
+    public ActionResult Delete(int id)
+    {
+      var thisTreat = _db.Treats.FirstOrDefault(treat => treat.TreatId == id);
+      return View(thisTreat);
+    }
+
+    [HttpPost]
+    public ActionResult DeleteConfirmed(int id)
+    {
+      var thisTreat = _db.Treats.FirstOrDefault(treat => treat.TreatId == id);
+      _db.Treats.Remove(thisTreat);
+      _db.SaveChanges();
+      return RedirectToAction("Index", "Treats");
     }
 
 

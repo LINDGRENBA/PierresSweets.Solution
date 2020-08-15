@@ -2,7 +2,6 @@
   Layout = "_Layout";
 }
 
-@using Bakery.Models;
 @model Bakery.Models.Flavor;
 
 <h2>Delicious Details!</h2>
@@ -15,9 +14,6 @@
   {
     <h4>This flavor doesn't belong to a treat yet! Tell us what kind of tasty treats have this flavor:</h4>
     <button class="btn btn-default">@Html.ActionLink("Add a Treat", "AddTreat", new { id = Model.FlavorId})</button> 
-    @* NEED ADD-TREAT VIEW AND CONTROLLERS *@
-    <button class="btn btn-default">@Html.ActionLink("Edit", "Edit", new { id = Model.FlavorId})</button>
-    @* NEED EDIT VIEW AND CONTROLLERS *@
   }
   else
   {
@@ -25,12 +21,16 @@
       @foreach(var join in Model.Treats)
       {
         <li>@join.Treat.Type</li>
-        @* DELETE FLAVOR BUTTON GOES HERE *@
+        @using (Html.BeginForm("DeleteTreat", "Flavors"))
+        {
+          @Html.Hidden("joinId", @join.FlavorTreatId, @join.TreatId)
+          <button type="submit" class="btn btn-warning join-delete">Delete</button>
+        }
       }
     </ul>
+    <button class="btn btn-default">@Html.ActionLink("Back to List", "Index")</button>
     <button class="btn btn-default">@Html.ActionLink("Add more Treats", "AddTreat", new { id = Model.FlavorId})</button>
-    
+    <button class="btn btn-default">@Html.ActionLink("Edit", "Edit", new { id = Model.FlavorId})</button>
+    <button class="btn btn-default">@Html.ActionLink("Delete this Record", "Delete", new { id = Model.FlavorId })</button> 
   }
-  <button class="btn btn-default">@Html.ActionLink("Delete this Record", "Delete", new { id = Model.FlavorId })</button>
-  <button class="btn btn-default">@Html.ActionLink("Back to List", "Index")</button>
 </div>
