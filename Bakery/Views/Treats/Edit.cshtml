@@ -10,6 +10,8 @@
 <div class="form">
   @using (Html.BeginForm())
   {
+    @Html.HiddenFor(model => model.TreatId)
+
     @Html.LabelFor(model => model.Type)
     @Html.EditorFor(model => model.Type, new { @class="form-control"})
     <br/>
