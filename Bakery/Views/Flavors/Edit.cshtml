@@ -1,0 +1,22 @@
+@{
+  Layout = "_Layout";
+}
+
+@using Bakery.Models;
+@model Bakery.Models.Flavor;
+
+<h1>Edit @Model.Type</h1>
+<p class="fancy">Suggestions: sweet, savory, spicy, creamy, salty</p>
+
+<div class="form">
+  @using (Html.BeginForm())
+  {
+    @Html.HiddenFor(model => model.FlavorId)
+
+    @Html.LabelFor(model => model.Type)
+    @Html.EditorFor(model => model.Type, new { @class="form-control"})
+    <hr/> 
+    
+    <button type="submit" class="btn btn-default">Save Changes</button>
+  }
+</div>

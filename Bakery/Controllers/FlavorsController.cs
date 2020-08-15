@@ -56,7 +56,7 @@ namespace Bakery.Controllers
     {
       var thisFlavor = _db.Flavors.FirstOrDefault(flavors => flavors.FlavorId == id);
       ViewBag.AnyTreat = _db.Treats.OrderBy(treats => treats.Type).ToList();
-      ViewBag.TreatId = new SelectList(_db.Treats, "FlavorId", "Type");
+      ViewBag.TreatId = new SelectList(_db.Treats, "TreatId", "Type");
       return View(thisFlavor);
     }
 
@@ -72,11 +72,11 @@ namespace Bakery.Controllers
       return RedirectToAction("Index");
     }
 
-    public ActionResult AddTreat(int id)
-    {
-      var thisFlavor = _db.Flavors.FirstOrDefault(flavors => flavors.FlavorId == id);
-      ViewBag.TreatId = new SelectList(_db.Treats, "TreatId", "Type");
-      return View(thisFlavor);
-    }
+    // public ActionResult AddTreat(int id)
+    // {
+    //   var thisFlavor = _db.Flavors.FirstOrDefault(flavors => flavors.FlavorId == id);
+    //   ViewBag.TreatId = new SelectList(_db.Treats, "TreatId", "Type");
+    //   return View(thisFlavor);
+    // }
   }
 }
