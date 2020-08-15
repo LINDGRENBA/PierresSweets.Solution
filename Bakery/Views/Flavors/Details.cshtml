@@ -8,12 +8,12 @@
 <h2>Delicious Details!</h2>
 <hr/>
 
-<h4 class="fancy">Taste Type: @Model.Type</h4>
+<h4 class="fancy">Flavor Type: @Model.Type</h4>
 
 <div class="form">
   @if(Model.Treats.Count == 0)
   {
-    <h4>This flavor doesn't belong to a treat yet! Tell us what kind of treats have this flavor:</h4>
+    <h4>This flavor doesn't belong to a treat yet! Tell us what kind of tasty treats have this flavor:</h4>
     <button class="btn btn-default">@Html.ActionLink("Add a Treat", "AddTreat", new { id = Model.FlavorId})</button> 
     @* NEED ADD-TREAT VIEW AND CONTROLLERS *@
     <button class="btn btn-default">@Html.ActionLink("Edit", "Edit", new { id = Model.FlavorId})</button>
