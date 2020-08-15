@@ -26,7 +26,7 @@ namespace Bakery.Controllers
 
     public ActionResult Index()
     {
-      return View(_db.Flavors.OrderBy(flavors => flavors.Type).ToList());
+      return View(_db.Flavors.OrderBy(flavor => flavor.Type).ToList());
     }
     
     public ActionResult Create()
@@ -46,16 +46,16 @@ namespace Bakery.Controllers
     public ActionResult Details(int id)
     {
       var thisFlavor = _db.Flavors
-          .Include(flavors => flavors.Treats)
+          .Include(flavor => flavor.Treats)
           .ThenInclude(join => join.Treat)
-          .FirstOrDefault(flavors => flavors.FlavorId == id);
+          .FirstOrDefault(flavor => flavor.FlavorId == id);
           return View(thisFlavor);
     }
 
     public ActionResult Edit(int id)
     {
-      var thisFlavor = _db.Flavors.FirstOrDefault(flavors => flavors.FlavorId == id);
-      ViewBag.AnyTreat = _db.Treats.OrderBy(treats => treats.Type).ToList();
+      var thisFlavor = _db.Flavors.FirstOrDefault(flavor => flavor.FlavorId == id);
+      ViewBag.AnyTreat = _db.Treats.OrderBy(treat => treat.Type).ToList();
       ViewBag.TreatId = new SelectList(_db.Treats, "TreatId", "Type");
       return View(thisFlavor);
     }
@@ -78,5 +78,20 @@ namespace Bakery.Controllers
     //   ViewBag.TreatId = new SelectList(_db.Treats, "TreatId", "Type");
     //   return View(thisFlavor);
     // }
+
+    public ActionResult Delete(int id)
+    {
+      var thisFlavor = _db.Flavors.FirstOrDefault(flavor => flavor.FlavorId == id);
+      return View(thisFlavor);
+    }
+
+    [HttpPost, ActionName("Delete")]
+    public ActionResult DeleteConfirmed(int id)
+    {
+      var thisFlavor = _db.Flavors.FirstOrDefault(flavor => flavor.FlavorId == id);
+      _db.Flavors.Remove(thisFlavor);
+      _db.SaveChanges();
+      return RedirectToAction("Index", "Flavors");
+    }
   }
 }
