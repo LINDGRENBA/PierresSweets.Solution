@@ -12,7 +12,6 @@ using System.Linq;
 
 namespace Bakery.Controllers
 {
-  [Authorize]
   public class FlavorsController : Controller
   {
     private readonly BakeryContext _db;
@@ -29,6 +28,7 @@ namespace Bakery.Controllers
       return View(_db.Flavors.OrderBy(flavor => flavor.Type).ToList());
     }
     
+    [Authorize]
     public ActionResult Create()
     {
       return View();
@@ -52,6 +52,7 @@ namespace Bakery.Controllers
           return View(thisFlavor);
     }
 
+    [Authorize]
     public ActionResult Edit(int id)
     {
       var thisFlavor = _db.Flavors.FirstOrDefault(flavor => flavor.FlavorId == id);
@@ -79,6 +80,7 @@ namespace Bakery.Controllers
     //   return View(thisFlavor);
     // }
 
+    [Authorize]
     public ActionResult Delete(int id)
     {
       var thisFlavor = _db.Flavors.FirstOrDefault(flavor => flavor.FlavorId == id);
