@@ -10,6 +10,11 @@ namespace Bakery.Controllers
 {
   public class HomeController : Controller
   {
+    private readonly BakeryContext _db;
+    public HomeController(BakeryContext db)
+    {
+      _db = db;
+    }
     public ActionResult Index()
     {
       return View();
