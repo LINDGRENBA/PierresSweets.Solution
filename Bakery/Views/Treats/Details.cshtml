@@ -8,8 +8,8 @@
 <h2>Delicious Details!</h2>
 <hr/>
 
-<h4><span class="fancy">Treat Type: @Model.Type</span></h4>
-<h4><span class="fancy">Delicious Description: @Model.Description</span></h4>
+<h4 class="fancy">Treat Type: @Html.DisplayFor(model => model.Type)</h4>
+<h4 class="fancy">Delicious Description: @Html.DisplayFor(model => model.Description)</h4>
 
 <div class="form">
   @if(Model.Flavors.Count == 0)
@@ -20,7 +20,7 @@
   }
   else
   {
-    <ul class="flavors-box">
+    <ul class="flavors-list">
       @foreach(var join in Model.Flavors)
       {
         <li>@join.Flavor.Type</li>

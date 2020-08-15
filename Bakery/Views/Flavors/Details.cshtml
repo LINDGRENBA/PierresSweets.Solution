@@ -11,7 +11,7 @@
 <h4 class="fancy">Flavor Type: @Model.Type</h4>
 
 <div class="form">
-  @if(Model.Treats.Count == 0)
+  @if(@Model.Treats.Count == 0)
   {
     <h4>This flavor doesn't belong to a treat yet! Tell us what kind of tasty treats have this flavor:</h4>
     <button class="btn btn-default">@Html.ActionLink("Add a Treat", "AddTreat", new { id = Model.FlavorId})</button> 
@@ -21,7 +21,7 @@
   }
   else
   {
-    <ul class="flavors-box">
+    <ul class="treats-list">
       @foreach(var join in Model.Treats)
       {
         <li>@join.Treat.Type</li>

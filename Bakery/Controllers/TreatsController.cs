@@ -9,6 +9,7 @@ using System.Security.Claims;
 using Bakery.ViewModels;
 using Bakery.Models;
 using System.Linq;
+using System;
 
 namespace Bakery.Controllers
 {
@@ -73,12 +74,35 @@ namespace Bakery.Controllers
       return RedirectToAction("Index");
     }
 
+
+
     [Authorize]
     public ActionResult AddFlavor(int id)
     {
-      var thisTreat = _db.Treats.FirstOrDefault(treats => treats.TreatId == id);
+      var thisTreat = _db.Treats.FirstOrDefault(treat => treat.TreatId == id);
       ViewBag.FlavorId = new SelectList(_db.Flavors, "FlavorId", "Type");
       return View(thisTreat);
+    }
+
+    [HttpPost]
+    public ActionResult AddFlavor(Treat treat, int FlavorId, int id)
+    {
+      if(FlavorId != 0)
+      {
+        _db.FlavorTreat.Add(new FlavorTreat() { TreatId = treat.TreatId, FlavorId = FlavorId});
+      }
+      _db.SaveChanges();
+      // var thisTreat = _db.Treats.FirstOrDefault(model => model.TreatId == treat.TreatId);
+      // return RedirectToAction ("Details", thisTreat);
+      // var thisTreat = _db.Treats
+      //     .Include(treats => treats.Flavors)
+      //     .ThenInclude(join => join.Flavor)
+      //     .Include(treats => treats.ApplicationUser)
+      //     .FirstOrDefault(treats => treats.TreatId == id);
+      // return RedirectToAction("Details", thisTreat);  SAVES TO DB BUT THEN VIEW DOES NOT
+      // ACCESS INFORMATION PROPERLY - WOULD LIKE TO ACHIEVE THIS SO IT REDIRECTS DIRECTLY TO
+      // TREATS DETAILS PAGE
+      return RedirectToAction("Index");
     }
   }
 }
