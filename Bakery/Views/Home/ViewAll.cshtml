@@ -15,7 +15,7 @@
     }
     else
     {
-      <ul class="treats-list splash">
+      <ul class="treats-list pretty-box">
       @foreach(Treat treat in Model)
       {
         <li>@treat.Type</li>
@@ -31,7 +31,7 @@
     }
     else
     {
-      <ul class="flavors-list splash">
+      <ul class="flavors-list pretty-box">
         @foreach(var join in @ViewBag.Flavors)
         {
           <li>@join.Type</li>

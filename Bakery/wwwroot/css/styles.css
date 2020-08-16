@@ -20,7 +20,11 @@ body {
 /* BOXES */
 
 .account-index {
-  margin-bottom: 30px;
+  background: rgba(255, 255, 255, .4);
+  box-shadow: 0 15px 20px rgba(0, 0, 0, .5);
+  width: 50%;
+  margin: 30px auto;
+  padding: 20px;
 }
 
 .account-form {
@@ -49,7 +53,7 @@ body {
   margin-right: auto;
 }
 
-.splash {
+.pretty-box {
   background: rgba(255, 255, 255, .4);
   box-shadow: 0 15px 20px rgba(0, 0, 0, .5);
   width: 50%;

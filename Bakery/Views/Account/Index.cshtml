@@ -9,23 +9,17 @@
 {
   <h1>Welcome to Peirre's Bakery, @User.Identity.Name!</h1>
   <p>You are currently logged into your account.</p>
-  @* @using (Html.BeginForm("LogOff", "Account"))
-  {
-    <button type="submit" class="btn btn-default">Log Out</button>
-  } *@
 }
 else
 {
   <div class="account-form">
-    <div class="row">
-      <div class="col-sm-6 col-xs-12 account-index">
-        <h4>Don't have an account yet?</h4>
-        <button class="btn btn-default">@Html.ActionLink("Register", "Register")</button>
-      </div>
-      <div class="col-sm-6 col-xs-12 account-index">
-        <h4>Have an existing account?</h4>
-        <button class="btn btn-default">@Html.ActionLink("Log in", "Login")</button>
-      </div>
+    <div class="account-index">
+      <h4>Don't have an account yet?</h4>
+      <button class="btn btn-default">@Html.ActionLink("Register", "Register")</button>
+    </div>
+    <div class="account-index">
+      <h4>Have an existing account?</h4>
+      <button class="btn btn-default">@Html.ActionLink("Log in", "Login")</button>
     </div>
   </div>
 }
