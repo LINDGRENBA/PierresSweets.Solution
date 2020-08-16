@@ -26,6 +26,7 @@
         <li><a>@Html.ActionLink("Create an account or LogIn", "Index", "Account")</a></li>
         @if(User.Identity.IsAuthenticated)
           {
+            <li><a>@Html.ActionLink("All Treats & Flavors", "ViewAll", "Home")</a></li>
             <li><a>@Html.ActionLink("View Treats", "Index", "Treats")</a></li>
             <li><a>@Html.ActionLink("Add Treats", "Create", "Treats")</a></li>
             <li><a>@Html.ActionLink("View Flavors", "Index", "Flavors")</a></li>
@@ -33,6 +34,7 @@
           }
           else
           {
+            <li><a>@Html.ActionLink("All Treats & Flavors", "ViewAll", "Home")</a></li>
             <li><a>@Html.ActionLink("View Treats", "Index", "Treats")</a></li>
             <li><a>@Html.ActionLink("View Flavors", "Index", "Flavors")</a></li>
           }

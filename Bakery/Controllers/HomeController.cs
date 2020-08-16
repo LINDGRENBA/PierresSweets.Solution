@@ -15,9 +15,17 @@ namespace Bakery.Controllers
     {
       _db = db;
     }
+
     public ActionResult Index()
     {
       return View();
+    }
+
+    public ActionResult ViewAll()
+    {
+      var model = _db.Treats.OrderBy(treat => treat.Type).ToList();
+      ViewBag.Flavors = _db.Flavors.OrderBy(flavor => flavor.Type).ToList();
+      return View(model);
     }
   }
 }
